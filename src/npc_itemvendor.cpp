@@ -115,6 +115,7 @@ public:
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/inv_helmet_29:24:24:-18|t[Tiers]", GOSSIP_SENDER_MAIN, 2);
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/inv_chest_cloth_04:24:24:-18|t[Armors]", GOSSIP_SENDER_MAIN, 3);
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Inv_misc_cape_18:24:24:-18|t[Accessories]", GOSSIP_SENDER_MAIN, 4);
+        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Inv_misc_bag_enchantedmageweave:24:24:-18|t[Consumables, Bags, Extras]", GOSSIP_SENDER_MAIN, 5);
 
         SendGossipMenuFor(player, NPC_ITEMVENDOR_ENTRY, creature->GetGUID());
         return true;

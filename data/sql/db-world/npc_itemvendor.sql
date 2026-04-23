@@ -230,4 +230,15 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+3, 42852), -- deadly-gladiators-libram-of-fortitude
 (@Entry+3, 40267), -- totem-of-hex
 (@Entry+3, 42607), -- deadly-gladiators-totem-of-indomitability
-(@Entry+3, 40709); -- totem-of-forest-growth
+(@Entry+3, 40709), -- totem-of-forest-growth
+-- EXTRAS
+(@Entry+4, 41599), -- frostweave-bag
+(@Entry+4, 41597), -- abyssal-bag
+(@Entry+4, 41165), -- saronite-razorheads
+(@Entry+4, 41164), -- mammoth-cutters
+(@Entry+4, 46377), -- flask-of-endless-rage
+(@Entry+4, 46378), -- flask-of-pure-mojo
+(@Entry+4, 46379), -- flask-of-stoneblood
+(@Entry+4, 46376), -- flask-of-the-frost-wyrm
+(@Entry+4, 43015); -- fish-feast
+
