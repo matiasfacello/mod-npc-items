@@ -125,7 +125,7 @@ public:
         player->PlayerTalkClass->ClearMenus();
 
         if (action >= 1 && action <= 4) {
-            player->GetSession()->SendListInventory(creature->GetGUID(), action);
+            player->GetSession()->SendListInventory(creature->GetGUID(), 606600 - 1 + action);
             return true;
         }
 
