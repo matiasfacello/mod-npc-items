@@ -100,7 +100,7 @@ public:
     npc_itemvendor() : CreatureScript("npc_itemvendor") { }
 
 
-    bool OnGossipHello(Player* player, Creature* creature)
+    bool OnGossipHello(Player* player, Creature* creature) override
     {
 
         if (!ItemVendorEnableModule)
@@ -117,7 +117,7 @@ public:
         return true;
     }
 
-    bool OnGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action)
+    bool OnGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action) override
     {
         if (!ItemVendorEnableModule)
             return false;
