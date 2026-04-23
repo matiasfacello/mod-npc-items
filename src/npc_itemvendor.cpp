@@ -129,7 +129,7 @@ public:
         if (sender != GOSSIP_SENDER_MAIN)
             return false;
 
-        if (action >= 1 && action <= 4)
+        if (action >= 1 && action <= 5)
         {
             CloseGossipMenuFor(player);
             player->GetSession()->SendListInventory(creature->GetGUID(), NPC_ITEMVENDOR_ENTRY + action - 1);
