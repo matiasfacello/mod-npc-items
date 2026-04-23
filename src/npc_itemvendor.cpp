@@ -8,7 +8,7 @@
 - Type: NPC (ID: 606600)
 - Script: npc_itemvendor
 - Config: Yes
-- SQL: No
+- SQL: Yes (see data/sql/db-world/)
 
 
 
@@ -39,34 +39,21 @@ This code and content is released under the [GNU AGPL v3](https://github.com/aze
 
 */
 
-#include "Cell.h"
-#include "CellImpl.h"
 #include "Chat.h"
-#include "CombatAI.h"
 #include "Configuration/Config.h"
-#include "DBCStores.h"
-#include "DBCStructure.h"
-#include "GameEventMgr.h"
-#include "GridNotifiers.h"
-#include "GridNotifiersImpl.h"
-#include "GameObject.h"
-#include "InstanceScript.h"
-#include "ObjectMgr.h"
-#include "PassiveAI.h"
 #include "Player.h"
+#include "Random.h"
 #include "ScriptedCreature.h"
 #include "ScriptedGossip.h"
 #include "ScriptMgr.h"
-#include "SpellScript.h"
-#include "SpellAuraEffects.h"
-#include "Unit.h"
 
-
-uint32 roll;
+namespace
+{
 bool ItemVendorEnableModule;
 bool ItemVendorAnnounceModule;
 uint32 ItemVendorMessageTimer;
 uint32 ItemVendorEmoteSpell;
+} // namespace
 
 class ItemVendorConfig : public WorldScript
 {
@@ -75,19 +62,16 @@ public:
         WORLDHOOK_ON_BEFORE_CONFIG_LOAD
     }) { }
 
-    void OnBeforeConfigLoad(bool reload) override
+    void OnBeforeConfigLoad(bool /*reload*/) override
     {
-        if (!reload) {
-            ItemVendorEnableModule = sConfigMgr->GetOption<bool>("ItemVendor.Enable", 1);
-            ItemVendorAnnounceModule = sConfigMgr->GetOption<bool>("ItemVendor.Announce", 1);
-            ItemVendorMessageTimer = sConfigMgr->GetOption<uint32>("ItemVendor.MessageTimer", 60000);
-            ItemVendorEmoteSpell = sConfigMgr->GetOption<uint32>("ItemVendor.EmoteSpell", 44940);
+        ItemVendorEnableModule = sConfigMgr->GetOption<bool>("ItemVendor.Enable", 1);
+        ItemVendorAnnounceModule = sConfigMgr->GetOption<bool>("ItemVendor.Announce", 1);
+        ItemVendorMessageTimer = sConfigMgr->GetOption<uint32>("ItemVendor.MessageTimer", 60000);
+        ItemVendorEmoteSpell = sConfigMgr->GetOption<uint32>("ItemVendor.EmoteSpell", 44940);
 
-            // Enforce Min/Max Time
-            if (ItemVendorMessageTimer != 0)
-                if (ItemVendorMessageTimer < 60000 || ItemVendorMessageTimer > 300000)
-                    ItemVendorMessageTimer = 60000;
-        }
+        if (ItemVendorMessageTimer != 0)
+            if (ItemVendorMessageTimer < 60000 || ItemVendorMessageTimer > 300000)
+                ItemVendorMessageTimer = 60000;
     }
 };
 
@@ -100,7 +84,7 @@ public:
         PLAYERHOOK_ON_LOGIN
     }) {}
 
-    void OnPlayerLogin(Player* player)
+    void OnPlayerLogin(Player* player) override
     {
         // Announce Module
         if (ItemVendorAnnounceModule)
@@ -159,14 +143,14 @@ public:
         uint32 MessageTimer = 0;
 
         // Called once when client is loaded
-        void Reset()
+        void Reset() override
         {
             if (ItemVendorMessageTimer != 0)
                 MessageTimer = urand(ItemVendorMessageTimer, 300000); // 1-5 minutes
         }
 
         // Called at World update tick
-        void UpdateAI(const uint32 diff)
+        void UpdateAI(uint32 diff) override
         {
             // If Enabled
             if (ItemVendorEnableModule && ItemVendorMessageTimer != 0)
@@ -184,7 +168,7 @@ public:
     };
 
     // CREATURE AI
-    CreatureAI * GetAI(Creature * creature) const
+    CreatureAI* GetAI(Creature* creature) const override
     {
         return new NPC_PassiveAI(creature);
     }

@@ -5,7 +5,7 @@
 - Type: NPC (ID: 606600)
 - Script: npc_itemvendor
 - Config: Yes
-- SQL: No
+- SQL: Yes (`data/sql/db-world/`)
 
 ### Version
 
