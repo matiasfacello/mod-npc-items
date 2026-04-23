@@ -65,7 +65,6 @@ This code and content is released under the [GNU AGPL v3](https://github.com/aze
 uint32 roll;
 bool ItemVendorEnableModule;
 bool ItemVendorAnnounceModule;
-uint32 ItemVendorNumPhrases;
 uint32 ItemVendorMessageTimer;
 uint32 ItemVendorEmoteSpell;
 
@@ -81,7 +80,6 @@ public:
         if (!reload) {
             ItemVendorEnableModule = sConfigMgr->GetOption<bool>("ItemVendor.Enable", 1);
             ItemVendorAnnounceModule = sConfigMgr->GetOption<bool>("ItemVendor.Announce", 1);
-            ItemVendorNumPhrases = sConfigMgr->GetOption<uint32>("ItemVendor.NumPhrases", 3);
             ItemVendorMessageTimer = sConfigMgr->GetOption<uint32>("ItemVendor.MessageTimer", 60000);
             ItemVendorEmoteSpell = sConfigMgr->GetOption<uint32>("ItemVendor.EmoteSpell", 44940);
 
@@ -139,8 +137,7 @@ public:
     {
         if (!ItemVendorEnableModule)
             return false;
-    
-        Item * item;
+
         player->PlayerTalkClass->ClearMenus();
 
         if (action >= 1 && action <= 4) {
@@ -176,13 +173,6 @@ public:
             {
                 if (MessageTimer <= diff)
                 {
-                    if (ItemVendorNumPhrases > 0)
-                    {
-                        std::string Message = PickPhrase();
-                        me->Say(Message.c_str(), LANG_UNIVERSAL);
-                    }
-
-                    // Alert players?
                     if (ItemVendorEmoteSpell != 0)
                         me->CastSpell(me, ItemVendorEmoteSpell);
 

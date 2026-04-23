@@ -19,27 +19,12 @@ ItemVendor.Enable = 1
 ItemVendor.Announce = 1
 
 # -------------------------------------------------------------------------------------
-#  How often does the NPC emote in milliseconds?
-#  Randomly caclulated within range 60000 (1 min, minumum) to 3000000 (5 minutes, max)
-#  Default: 60000 (1 minutes, minimum)
+#  How often the optional attention spell fires (milliseconds).
+#  Random interval between ItemVendor.MessageTimer (min 60000) and 300000.
+#  Default: 60000
 #  Disable: 0
 # -------------------------------------------------------------------------------------
 ItemVendor.MessageTimer = 60000
-
-# -------------------------------------------------------------------------------------
-#  How many pharases does the NPC have?
-#  Default: 3
-#  Disable: 0
-# -------------------------------------------------------------------------------------
-ItemVendor.NumPhrases = 3
-
-# -------------------------------------------------------------------------------------
-#  NPC Phrases - Add your own!
-#  Spoken randomly to the world
-# -------------------------------------------------------------------------------------
-EC.P1 = "I can sell all the items you are looking for."
-EC.P2 = "My items are known across all of Azeroth!"
-EC.P3 = "Greetings traveller. Care to see my wares?"
 
 # -------------------------------------------------------------------------------------
 #  The spell cast to get the player's attention
