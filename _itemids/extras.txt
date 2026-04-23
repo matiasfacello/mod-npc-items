@@ -1,0 +1,16 @@
+BAGS
+41597/abyssal-bag
+41599/frostweave-bag
+
+AMMO
+41164/mammoth-cutters
+41165/saronite-razorheads
+
+ELIXIRS
+46376/flask-of-the-frost-wyrm
+46377/flask-of-endless-rage
+46378/flask-of-pure-mojo
+46379/flask-of-stoneblood
+
+CONSUMABLES
+43015/fish-feast
