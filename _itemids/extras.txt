@@ -14,3 +14,9 @@ ELIXIRS
 
 CONSUMABLES
 43015/fish-feast
+40212/potion-of-wild-magic
+22828/insane-strength-potion
+40093/indestructible-potion
+40211/potion-of-speed
+33448/runic-mana-potion
+33447/runic-healing-potion

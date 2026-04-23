@@ -240,5 +240,11 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+4, 46378), -- flask-of-pure-mojo
 (@Entry+4, 46379), -- flask-of-stoneblood
 (@Entry+4, 46376), -- flask-of-the-frost-wyrm
-(@Entry+4, 43015); -- fish-feast
+(@Entry+4, 43015), -- fish-feast
+(@Entry+4, 40212), -- potion-of-wild-magic
+(@Entry+4, 22828), -- insane-strength-potion
+(@Entry+4, 40093), -- indestructible-potion
+(@Entry+4, 40211), -- potion-of-speed
+(@Entry+4, 33447), -- runic-healing-potion
+(@Entry+4, 33448); -- runic-mana-potion
 
