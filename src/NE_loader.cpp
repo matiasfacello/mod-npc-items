@@ -1,5 +1,5 @@
 void AddNPCItemVendorScripts();
 
-void Addmod_npc_itemvendorScripts() {
+void Addmod_npc_itemsScripts() {
     AddNPCItemVendorScripts();
 }
