@@ -230,4 +230,4 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+3, 42852), -- deadly-gladiators-libram-of-fortitude
 (@Entry+3, 40267), -- totem-of-hex
 (@Entry+3, 42607), -- deadly-gladiators-totem-of-indomitability
-(@Entry+3, 40709), -- totem-of-forest-growth
+(@Entry+3, 40709); -- totem-of-forest-growth
